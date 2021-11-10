@@ -3,7 +3,7 @@ const router = express.Router();
 
 // a route for getting all
 router.get('/', (req, res) => {
-
+    res.send('Hello World');
 });
 
 // a route for getting one
