@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
 });
 
 // a route for getting one
-router.get('/:id', (req, res) => {
-    res.send(req.params.id);
+router.get('/:id', getSubscriber, (req, res) => {
+    res.send(res.subscriber.name);
 });
 
 // a route for creating one
@@ -41,5 +41,21 @@ router.patch('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
 
 });
+
+// middle-ware to make code DRY
+async function getSubscriber(req, res, next) {
+    let subscriber;
+    try {
+        subscriber = await Subscriber.findById(req.params.id);
+        if(subscriber == null) {
+            return res.status(404).json({ message: 'Cannot find subscriber' });
+        }
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+
+    res.subscriber = subscriber;
+    next();
+}
 
 module.exports = router;

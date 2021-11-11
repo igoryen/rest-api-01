@@ -2,7 +2,7 @@ GET http://localhost:3000/subscribers
 
 ###
 
-GET http://localhost:3000/subscribers/15
+GET http://localhost:3000/subscribers/618c561e99f909c37f6fa47b
 
 ###
 
