@@ -13,3 +13,7 @@ Content-Type: application/json
     "name": "Igor Entaltsev",
     "subscribedToChannel": "Personal Channel"
 }
+
+### 
+
+DELETE http://localhost:3000/subscribers/618c561e99f909c37f6fa47b

@@ -38,8 +38,13 @@ router.patch('/:id', getSubscriber, (req, res) => {
 });
 
 // a route for deleting one
-router.delete('/:id', getSubscriber, (req, res) => {
-
+router.delete('/:id', getSubscriber, async (req, res) => {
+    try {
+        await res.subscriber.remove();
+        res.json({ message: 'Deleted Subscriber' });
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
 });
 
 // middle-ware to make code DRY
