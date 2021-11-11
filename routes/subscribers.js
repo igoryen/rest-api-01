@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
 // a route for getting one
 router.get('/:id', getSubscriber, (req, res) => {
-    res.send(res.subscriber.name);
+    res.json(res.subscriber);
 });
 
 // a route for creating one
@@ -33,12 +33,12 @@ router.post('/', async (req, res) => {
 });
 
 // a route for updating one
-router.patch('/:id', (req, res) => {
+router.patch('/:id', getSubscriber, (req, res) => {
 
 });
 
 // a route for deleting one
-router.delete('/:id', (req, res) => {
+router.delete('/:id', getSubscriber, (req, res) => {
 
 });
 
