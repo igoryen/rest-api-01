@@ -17,3 +17,12 @@ Content-Type: application/json
 ### 
 
 DELETE http://localhost:3000/subscribers/618c561e99f909c37f6fa47b
+
+###
+
+PATCH http://localhost:3000/subscribers/618c5c005db23c0875b64123
+Content-Type: application/json
+
+{
+    "name": "Jenica Entaltseva"
+}
